@@ -1,0 +1,23 @@
+{
+    "name": "waziri123/waziri-tall-crud-generator",
+    "description": "package for generating livewire 3 crud components",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Waziri123\\WaziriTallCrudGenerator\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "waziri123",
+            "email": "waziriallyamiri123@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "orchestra/testbench": "^8.13",
+        "livewire/livewire": "^3.0"
+    },
+    "require": {
+        "ascsoftw/livewire-toast": "^1.0"
+    }
+}
