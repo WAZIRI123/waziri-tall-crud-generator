@@ -7,6 +7,12 @@
             "Waziri123\\WaziriTallCrudGenerator\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+          "Waziri123\\WaziriTallCrudGenerator\\Tests\\": "tests"
+        }
+    },
+    
     "authors": [
         {
             "name": "waziri123",
@@ -18,6 +24,8 @@
         "livewire/livewire": "^3.0"
     },
     "require": {
-        "ascsoftw/livewire-toast": "^1.0"
+        "ascsoftw/livewire-toast": "^1.0",
+        "phpunit/phpunit": "^10.4",
+        "christophrumpel/missing-livewire-assertions": "^2.1"
     }
 }

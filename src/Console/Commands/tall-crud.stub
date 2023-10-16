@@ -1,0 +1,40 @@
+<?php
+
+namespace [namespace];
+
+use Livewire\Component;
+use Livewire\WithPagination;
+use Illuminate\Database\Eloquent\Builder;
+use \Illuminate\View\View;
+
+use [model_path];[other_models]
+
+class [class] extends Component
+{
+    use WithPagination;
+
+    /**
+     * @var array
+     */
+    protected $listeners = ['refresh' => '$refresh'];[sort_public_vars][search_vars][pagination_vars][hide_columns_vars][bulk_vars][filter_vars]
+
+    public function mount(): void
+    {
+[hide_columns_init][filter_mount]
+    }
+
+    public function render(): View
+    {
+        $results = $this->query()[with_query][with_count_query][search_query][sort_query]
+            ->paginate($this->per_page);
+
+        return view('[view]', [
+            'results' => $results
+        ]);
+    }[sort_method][search_method][pagination_dropdown_method][bulk_method][filter_method][hide_columns_method]
+
+    public function query(): Builder
+    {
+        return [model]::query()[filter_query];
+    }[filter_init]
+}
