@@ -1,14 +1,14 @@
 <?php
 
-namespace Ascsoftw\TallCrudGenerator;
+namespace WAZIRITALLCRUDGENERATOR;
 
-use Ascsoftw\TallCrudGenerator\Console\Commands\TallCrudGeneratorCommand;
-use Ascsoftw\TallCrudGenerator\Http\GenerateCode\ChildComponentCode;
-use Ascsoftw\TallCrudGenerator\Http\GenerateCode\ChildViewCode;
-use Ascsoftw\TallCrudGenerator\Http\GenerateCode\ComponentCode;
-use Ascsoftw\TallCrudGenerator\Http\GenerateCode\TallProperties;
-use Ascsoftw\TallCrudGenerator\Http\GenerateCode\ViewCode;
-use Ascsoftw\TallCrudGenerator\Http\Livewire\TallCrudGenerator;
+use WAZIRITALLCRUDGENERATOR\Console\Commands\TallCrudGeneratorCommand;
+use WAZIRITALLCRUDGENERATOR\Http\GenerateCode\ChildComponentCode;
+use WAZIRITALLCRUDGENERATOR\Http\GenerateCode\ChildViewCode;
+use WAZIRITALLCRUDGENERATOR\Http\GenerateCode\ComponentCode;
+use WAZIRITALLCRUDGENERATOR\Http\GenerateCode\TallProperties;
+use WAZIRITALLCRUDGENERATOR\Http\GenerateCode\ViewCode;
+use WAZIRITALLCRUDGENERATOR\Http\Livewire\TallCrudGenerator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;

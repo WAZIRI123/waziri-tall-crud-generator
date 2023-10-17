@@ -1,11 +1,11 @@
 <?php
 
-namespace Ascsoftw\TallCrudGenerator\Tests;
+namespace WAZIRITALLCRUDGENERATOR\Tests;
 
-use Ascsoftw\TallCrudGenerator\Http\GenerateCode\ChildComponentCode;
-use Ascsoftw\TallCrudGenerator\Http\GenerateCode\ChildViewCode;
-use Ascsoftw\TallCrudGenerator\Http\GenerateCode\TallProperties;
-use Ascsoftw\TallCrudGenerator\Http\Livewire\TallCrudGenerator;
+use WAZIRITALLCRUDGENERATOR\Http\GenerateCode\ChildComponentCode;
+use WAZIRITALLCRUDGENERATOR\Http\GenerateCode\ChildViewCode;
+use WAZIRITALLCRUDGENERATOR\Http\GenerateCode\TallProperties;
+use WAZIRITALLCRUDGENERATOR\Http\Livewire\TallCrudGenerator;
 use Illuminate\Support\Facades\App;
 use Livewire\Livewire;
 
@@ -112,8 +112,8 @@ class BelongsToTest extends TestCase
 
         $otherModels = $tallProperties->getBelongsToRelations()->toArray();
         $this->assertCount(1, $otherModels);
-        $this->assertEquals("\nuse Ascsoftw\TallCrudGenerator\Tests\Models\Brand;", $childComponentCode->getOtherModelsCode());
-        $this->assertEquals("\nuse Ascsoftw\TallCrudGenerator\Tests\Models\Brand;", $props['code']['child_other_models']);
+        $this->assertEquals("\nuse WAZIRITALLCRUDGENERATOR\Tests\Models\Brand;", $childComponentCode->getOtherModelsCode());
+        $this->assertEquals("\nuse WAZIRITALLCRUDGENERATOR\Tests\Models\Brand;", $props['code']['child_other_models']);
     }
 
     public function test_rules_are_added()

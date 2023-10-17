@@ -4,12 +4,12 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Waziri123\\WaziriTallCrudGenerator\\": "src/"
+            "WAZIRITALLCRUDGENERATOR\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-          "Waziri123\\WaziriTallCrudGenerator\\Tests\\": "tests"
+          "WAZIRITALLCRUDGENERATOR\\Tests\\": "tests"
         }
     },
     
