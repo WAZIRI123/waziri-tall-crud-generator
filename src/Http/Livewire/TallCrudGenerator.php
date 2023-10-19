@@ -1,12 +1,12 @@
 <?php
 
-namespace Ascsoftw\TallCrudGenerator\Http\Livewire;
+namespace WAZIRITALLCRUDGENERATOR\Http\Livewire;
 
-use Ascsoftw\TallCrudGenerator\Http\GenerateCode\ChildComponentCode;
-use Ascsoftw\TallCrudGenerator\Http\GenerateCode\ChildViewCode;
-use Ascsoftw\TallCrudGenerator\Http\GenerateCode\ComponentCode;
-use Ascsoftw\TallCrudGenerator\Http\GenerateCode\TallProperties;
-use Ascsoftw\TallCrudGenerator\Http\GenerateCode\ViewCode;
+use WAZIRITALLCRUDGENERATOR\Http\GenerateCode\ChildComponentCode;
+use WAZIRITALLCRUDGENERATOR\Http\GenerateCode\ChildViewCode;
+use WAZIRITALLCRUDGENERATOR\Http\GenerateCode\ComponentCode;
+use WAZIRITALLCRUDGENERATOR\Http\GenerateCode\TallProperties;
+use WAZIRITALLCRUDGENERATOR\Http\GenerateCode\ViewCode;
 use Exception;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
@@ -32,6 +32,7 @@ class TallCrudGenerator extends Component
     public $modelPath = '';
     public $isValidModel = false;
     public $modelProps = [];
+    public $props = [];
 
     public $fields = [];
     public $sortFields = [];

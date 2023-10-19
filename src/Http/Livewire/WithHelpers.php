@@ -1,6 +1,6 @@
 <?php
 
-namespace Ascsoftw\TallCrudGenerator\Http\Livewire;
+namespace WAZIRITALLCRUDGENERATOR\Http\Livewire;
 
 use Illuminate\Support\Str;
 

@@ -13,6 +13,10 @@
         }
     },
     
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "phpunit --coverage-html coverage"
+    },
     "authors": [
         {
             "name": "waziri123",
@@ -20,12 +24,19 @@
         }
     ],
     "require-dev": {
+        "livewire/livewire": "^3.0",
         "orchestra/testbench": "^8.13",
-        "livewire/livewire": "^3.0"
-    },
-    "require": {
-        "ascsoftw/livewire-toast": "^1.0",
         "phpunit/phpunit": "^10.4",
         "christophrumpel/missing-livewire-assertions": "^2.1"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "WAZIRITALLCRUDGENERATOR\\TallCrudGeneratorServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "ascsoftw/livewire-toast": "^1.0"
     }
 }

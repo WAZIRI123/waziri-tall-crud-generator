@@ -1,9 +1,9 @@
 <?php
 
-namespace Ascsoftw\TallCrudGenerator\Console\Commands;
+namespace WAZIRITALLCRUDGENERATOR\Console\Commands;
 
 use Illuminate\Support\Facades\File;
-use Livewire\Commands\FileManipulationCommand;
+use Livewire\Features\SupportConsoleCommands\Commands\FileManipulationCommand;
 
 class TallCrudGeneratorCommand extends FileManipulationCommand
 {

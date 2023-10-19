@@ -1,6 +1,6 @@
 <?php
 
-namespace Ascsoftw\TallCrudGenerator\Http\GenerateCode;
+namespace WAZIRITALLCRUDGENERATOR\Http\GenerateCode;
 
 class Template
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ascsoftw\TallCrudGenerator\Http\GenerateCode;
+namespace WAZIRITALLCRUDGENERATOR\Http\GenerateCode;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
@@ -267,32 +267,32 @@ class TallProperties
 
     public function setDeleteFeatureFlag($deleteFeaureFlag)
     {
-        $this->deleteFeaureFlag = $deleteFeaureFlag;
+        $this->deleteFeatureFlag = $deleteFeaureFlag;
     }
 
     public function isDeleteFeatureEnabled()
     {
-        return $this->deleteFeaureFlag;
+        return $this->deleteFeatureFlag;
     }
 
     public function setAddFeatureFlag($addFeaureFlag)
     {
-        $this->addFeaureFlag = $addFeaureFlag;
+        $this->addFeatureFlag = $addFeaureFlag;
     }
 
     public function isAddFeatureEnabled()
     {
-        return $this->addFeaureFlag;
+        return $this->addFeatureFlag;
     }
 
     public function setEditFeatureFlag($editFeaureFlag)
     {
-        $this->editFeaureFlag = $editFeaureFlag;
+        $this->editFeatureFlag = $editFeaureFlag;
     }
 
     public function isEditFeatureEnabled()
     {
-        return $this->editFeaureFlag;
+        return $this->editFeatureFlag;
     }
 
     public function setFlashMessageFlag($flashMessageFlag)

@@ -1,9 +1,9 @@
 <?php
 
-namespace Ascsoftw\TallCrudGenerator\Console\Commands;
+namespace WAZIRITALLCRUDGENERATOR\Console\Commands;
 
 use Illuminate\Support\Facades\File;
-use Livewire\Commands\ComponentParser;
+use Livewire\Features\SupportConsoleCommands\Commands\ComponentParser;
 
 class TallCrudGeneratorComponentParser extends ComponentParser
 {

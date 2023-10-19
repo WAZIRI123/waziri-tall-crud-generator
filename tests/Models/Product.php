@@ -1,6 +1,6 @@
 <?php
 
-namespace Ascsoftw\TallCrudGenerator\Tests\Models;
+namespace WAZIRITALLCRUDGENERATOR\Tests\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
