@@ -50,7 +50,7 @@ class FlashMessageTest extends TestCase
 
         $this->assertTrue($tallProperties->isFlashMessageEnabled());
         $flashCodeStr = <<<'EOT'
-$this->emitTo('livewire-toast', 'show', 'Record Added Successfully');
+        $this->dispatch('show', 'Record Added Successfully')->to('livewire-toast');
 EOT;
         $this->assertStringContainsString($flashCodeStr, $childComponentCode->getAddFlashCode());
 

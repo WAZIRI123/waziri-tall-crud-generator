@@ -8,18 +8,18 @@
         <x-tall-crud-h2>Primary Key Features</x-tall-crud-h2>
         <x-tall-crud-label class="mt-2">
             Display In Listing:
-            <x-tall-crud-checkbox class="ml-2" wire:model.defer="primaryKeyProps.inList"
+            <x-tall-crud-checkbox class="ml-2" wire:model="primaryKeyProps.inList"
                 @click="showPrimaryKeyInListing = ! showPrimaryKeyInListing " />
         </x-tall-crud-label>
 
         <x-tall-crud-label class="mt-2" x-show="showPrimaryKeyInListing">
             Sortable:
-            <x-tall-crud-checkbox class="ml-2" wire:model.defer="primaryKeyProps.sortable" />
+            <x-tall-crud-checkbox class="ml-2" wire:model="primaryKeyProps.sortable" />
         </x-tall-crud-label>
 
         <div x-show="showPrimaryKeyInListing">
             <x-tall-crud-label class="mt-2">Label:</x-tall-crud-label>
-            <x-tall-crud-input type="text" class="mt-1 block w-1/4" wire:model.defer="primaryKeyProps.label"
+            <x-tall-crud-input type="text" class="mt-1 block w-1/4" wire:model="primaryKeyProps.label"
                 placeholder="Label" />
         </div>
 
@@ -27,17 +27,17 @@
 
         <x-tall-crud-label class="mt-2">
             Add Modal
-            <x-tall-crud-checkbox class="ml-2" wire:model.defer="componentProps.createAddModal" />
+            <x-tall-crud-checkbox class="ml-2" wire:model="componentProps.createAddModal" />
         </x-tall-crud-label>
 
         <x-tall-crud-label class="mt-2">
             Edit Modal
-            <x-tall-crud-checkbox class="ml-2" wire:model.defer="componentProps.createEditModal" />
+            <x-tall-crud-checkbox class="ml-2" wire:model="componentProps.createEditModal" />
         </x-tall-crud-label>
 
         <x-tall-crud-label class="mt-2">
             Delete Modal
-            <x-tall-crud-checkbox class="ml-2" wire:model.defer="componentProps.createDeleteButton" />
+            <x-tall-crud-checkbox class="ml-2" wire:model="componentProps.createDeleteButton" />
         </x-tall-crud-label>
     </div>
 </div>

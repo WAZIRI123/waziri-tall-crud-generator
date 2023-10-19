@@ -14,7 +14,7 @@
                     {{ $this->getAdvancedSettingLabel($key)}}
                 </x-tall-crud-label>
                 <x-tall-crud-input class="block mt-1 w-1/4" type="text"
-                    wire:model.defer="advancedSettings.text.{{$key}}" />
+                    wire:model="advancedSettings.text.{{$key}}" />
             </div>
             @endforeach
         </x-tall-crud-accordion-wrapper>
@@ -29,14 +29,14 @@
         <x-tall-crud-accordion-wrapper ref="advancedTab2" tab="2">
             <x-tall-crud-label class="mt-2">
                 Enable Flash Messages:
-                <x-tall-crud-checkbox class="ml-2" wire:model.defer="flashMessages.enable" />
+                <x-tall-crud-checkbox class="ml-2" wire:model="flashMessages.enable" />
             </x-tall-crud-label>
 
             @foreach (['add', 'edit', 'delete'] as $key)
             <div class="mt-4">
                 <x-tall-crud-label>{{ Str::title($key)}}:</x-tall-crud-label>
                 <x-tall-crud-input type="text" class="mt-1 block w-1/2"
-                    wire:model.defer="flashMessages.text.{{$key}}" />
+                    wire:model="flashMessages.text.{{$key}}" />
             </div>
             @endforeach
         </x-tall-crud-accordion-wrapper>
@@ -50,12 +50,12 @@
         <x-tall-crud-accordion-wrapper ref="advancedTab3" tab="3">
             <x-tall-crud-label class="mt-2">
                 Show Pagination Dropdown:
-                <x-tall-crud-checkbox class="ml-2" wire:model.defer="advancedSettings.table_settings.showPaginationDropdown" />
+                <x-tall-crud-checkbox class="ml-2" wire:model="advancedSettings.table_settings.showPaginationDropdown" />
             </x-tall-crud-label>
             <x-tall-crud-checkbox-wrapper class="mt-4">
                 <x-tall-crud-label>Records Per Page: </x-tall-crud-label>
                 <x-tall-crud-select class="block mt-1 w-1/6 ml-2"
-                    wire:model="advancedSettings.table_settings.recordsPerPage">
+                    wire:model.live="advancedSettings.table_settings.recordsPerPage">
                     @foreach ([10, 15, 20, 50] as $p)
                     <option value="{{$p}}">{{$p}}</option>
                     @endforeach
@@ -63,17 +63,17 @@
             </x-tall-crud-checkbox-wrapper>
             <x-tall-crud-label class="mt-4">
                 Allow User to Hide Column in Listing <span class="italic">(only works with Alpine v3):</span>
-                <x-tall-crud-checkbox class="ml-2" wire:model.defer="advancedSettings.table_settings.showHideColumns" />
+                <x-tall-crud-checkbox class="ml-2" wire:model="advancedSettings.table_settings.showHideColumns" />
             </x-tall-crud-label>
             <x-tall-crud-label class="mt-4">
                 Enable Bulk Actions
-                <x-tall-crud-checkbox class="ml-2" wire:model.defer="advancedSettings.table_settings.bulkActions" />
+                <x-tall-crud-checkbox class="ml-2" wire:model="advancedSettings.table_settings.bulkActions" />
             </x-tall-crud-label>
             @if($this->advancedSettings['table_settings']['bulkActions'])
             <x-tall-crud-checkbox-wrapper>
                 <x-tall-crud-label>Column to Change on Bulk Action: </x-tall-crud-label>
                 <x-tall-crud-select class="block mt-1 w-1/6 ml-2"
-                    wire:model="advancedSettings.table_settings.bulkActionColumn">
+                    wire:model.live="advancedSettings.table_settings.bulkActionColumn">
                     <option value="">-Select Column-</option>
                     @if (Arr::exists($modelProps, 'columns'))
                     @foreach ($modelProps['columns'] as $column)
@@ -87,27 +87,27 @@
             <div class="mt-4">
                 <x-tall-crud-label>Class on th:</x-tall-crud-label>
                 <x-tall-crud-input type="text" class="mt-1 block w-1/4"
-                    wire:model.defer="advancedSettings.table_settings.classes.th" />
+                    wire:model="advancedSettings.table_settings.classes.th" />
             </div>
             <div class="mt-4">
                 <x-tall-crud-label>Hover Class on tr:</x-tall-crud-label>
                 <x-tall-crud-input type="text" class="mt-1 block w-1/4"
-                    wire:model.defer="advancedSettings.table_settings.classes.trHover" />
+                    wire:model="advancedSettings.table_settings.classes.trHover" />
             </div>
             <div class="mt-4">
                 <x-tall-crud-label>Even Row Class:</x-tall-crud-label>
                 <x-tall-crud-input type="text" class="mt-1 block w-1/4"
-                    wire:model.defer="advancedSettings.table_settings.classes.trEven" />
+                    wire:model="advancedSettings.table_settings.classes.trEven" />
             </div>
             <div class="mt-4">
                 <x-tall-crud-label>Table Row Divide Class:</x-tall-crud-label>
                 <x-tall-crud-input type="text" class="mt-1 block w-1/4"
-                    wire:model.defer="advancedSettings.table_settings.classes.trBottomBorder" />
+                    wire:model="advancedSettings.table_settings.classes.trBottomBorder" />
             </div>
             <div class="mt-4">
                 <x-tall-crud-label>Class on td:</x-tall-crud-label>
                 <x-tall-crud-input type="text" class="mt-1 block w-1/4"
-                    wire:model.defer="advancedSettings.table_settings.classes.td" />
+                    wire:model="advancedSettings.table_settings.classes.td" />
             </div>
         </x-tall-crud-accordion-wrapper>
         <x-tall-crud-accordion-header tab="4">
@@ -151,7 +151,7 @@
     </div>
 </div>
 
-<x-tall-crud-dialog-modal wire:model="confirmingFilter">
+<x-tall-crud-dialog-modal wire:model.live="confirmingFilter">
     <x-slot name="title">
         Add a New Filter
     </x-slot>
@@ -195,7 +195,7 @@
                 @if ( $filter['type'] == 'Date')
                 <div class="mt-4">
                     <x-tall-crud-label>Label</x-tall-crud-label>
-                    <x-tall-crud-input class="block mt-1 w-1/2" type="text" wire:model.defer="filter.label" />
+                    <x-tall-crud-input class="block mt-1 w-1/2" type="text" wire:model="filter.label" />
                 </div>
                 <div class="mt-4">
                     <x-tall-crud-label>Operator</x-tall-crud-label>
@@ -211,7 +211,7 @@
                 @if ( $filter['type'] == 'None')
                 <div class="mt-4">
                     <x-tall-crud-label>Select Options (add as JSON)</x-tall-crud-label>
-                    <x-tall-crud-input class="block mt-1 w-full" type="text" wire:model.defer="filter.options" />
+                    <x-tall-crud-input class="block mt-1 w-full" type="text" wire:model="filter.options" />
                 </div>
                 @endif
 
@@ -257,7 +257,7 @@
                 @endif
                 <x-tall-crud-label class="mt-4">
                     Filter Multiple Values
-                    <x-tall-crud-checkbox class="ml-2" wire:model.defer="filter.isMultiple" />
+                    <x-tall-crud-checkbox class="ml-2" wire:model="filter.isMultiple" />
                 </x-tall-crud-label>
                 @endif
             </div>

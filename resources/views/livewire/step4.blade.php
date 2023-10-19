@@ -91,7 +91,7 @@
 </div>
 
 @if ($this->addFeature || $this->editFeature)
-<x-tall-crud-dialog-modal wire:model="confirmingBelongsToMany">
+<x-tall-crud-dialog-modal wire:model.live="confirmingBelongsToMany">
     <x-slot name="title">
         Add a Belongs to Many Relationship
     </x-slot>
@@ -117,24 +117,24 @@
                 @if ($this->addFeature)
                     <x-tall-crud-label class="mt-2">
                         Show in Add Form:
-                        <x-tall-crud-checkbox class="ml-2" wire:model.defer="belongsToManyRelation.inAdd" />
+                        <x-tall-crud-checkbox class="ml-2" wire:model="belongsToManyRelation.inAdd" />
                     </x-tall-crud-label>
                 @endif
                 @if ($this->editFeature)
                     <x-tall-crud-label class="mt-2">
                         Show in Edit Form:
-                        <x-tall-crud-checkbox class="ml-2" wire:model.defer="belongsToManyRelation.inEdit" />
+                        <x-tall-crud-checkbox class="ml-2" wire:model="belongsToManyRelation.inEdit" />
                     </x-tall-crud-label>
                 @endif
                 <x-tall-crud-label class="mt-2">
                     Display as Multi-Select (Default is Checkboxes):
-                    <x-tall-crud-checkbox class="ml-2" wire:model.defer="belongsToManyRelation.isMultiSelect" />
+                    <x-tall-crud-checkbox class="ml-2" wire:model="belongsToManyRelation.isMultiSelect" />
                 </x-tall-crud-label>
 
                 <div class="mt-4">
                     <x-tall-crud-label>Display Column</x-tall-crud-label>
                     <x-tall-crud-select class="block mt-1 w-1/2"
-                        wire:model.defer="belongsToManyRelation.displayColumn">
+                        wire:model="belongsToManyRelation.displayColumn">
                         <option value="">-Please Select-</option>
                         @if (Arr::exists($belongsToManyRelation, 'columns'))
                         @foreach ($belongsToManyRelation['columns'] as $c)
@@ -158,7 +158,7 @@
     </x-slot>
 </x-tall-crud-dialog-modal>
 
-<x-tall-crud-dialog-modal wire:model="confirmingBelongsTo">
+<x-tall-crud-dialog-modal wire:model.live="confirmingBelongsTo">
     <x-slot name="title">
         Add a Belongs to Relationship
     </x-slot>
@@ -184,19 +184,19 @@
                 @if ($this->addFeature)
                     <x-tall-crud-label class="mt-2">
                         Show in Add Form:
-                        <x-tall-crud-checkbox class="ml-2" wire:model.defer="belongsToRelation.inAdd" />
+                        <x-tall-crud-checkbox class="ml-2" wire:model="belongsToRelation.inAdd" />
                     </x-tall-crud-label>
                 @endif
                 @if ($this->editFeature)
                     <x-tall-crud-label class="mt-2">
                         Show in Edit Form:
-                        <x-tall-crud-checkbox class="ml-2" wire:model.defer="belongsToRelation.inEdit" />
+                        <x-tall-crud-checkbox class="ml-2" wire:model="belongsToRelation.inEdit" />
                     </x-tall-crud-label>
                 @endif
                 <div class="mt-4">
                     <x-tall-crud-label>Display Column</x-tall-crud-label>
                     <x-tall-crud-select class="block mt-1 w-1/4"
-                        wire:model.defer="belongsToRelation.displayColumn">
+                        wire:model="belongsToRelation.displayColumn">
                         <option value="">-Please Select-</option>
                         @if (Arr::exists($belongsToRelation, 'columns'))
                         @foreach ($belongsToRelation['columns'] as $c)
@@ -221,7 +221,7 @@
 </x-tall-crud-dialog-modal>
 @endif
 
-<x-tall-crud-dialog-modal wire:model="confirmingWith">
+<x-tall-crud-dialog-modal wire:model.live="confirmingWith">
     <x-slot name="title">
         Eager Load a Relationship
     </x-slot>
@@ -247,7 +247,7 @@
                 <div class="mt-4">
                     <x-tall-crud-label>Display Column</x-tall-crud-label>
                     <x-tall-crud-select class="block mt-1 w-1/2"
-                        wire:model.defer="withRelation.displayColumn">
+                        wire:model="withRelation.displayColumn">
                         <option value="">-Please Select-</option>
                         @if (Arr::exists($withRelation, 'columns'))
                         @foreach ($withRelation['columns'] as $c)
@@ -269,7 +269,7 @@
     </x-slot>
 </x-tall-crud-dialog-modal>
 
-<x-tall-crud-dialog-modal wire:model="confirmingWithCount">
+<x-tall-crud-dialog-modal wire:model.live="confirmingWithCount">
     <x-slot name="title">
         Eager Load Count
     </x-slot>
@@ -293,7 +293,7 @@
             @if ($withCountRelation['isValid'])
                 <x-tall-crud-label class="mt-2">
                     Make Heading Sortable
-                    <x-tall-crud-checkbox class="ml-2" wire:model.defer="withCountRelation.isSortable" />
+                    <x-tall-crud-checkbox class="ml-2" wire:model="withCountRelation.isSortable" />
                 </x-tall-crud-label>
             @endif
         </div>

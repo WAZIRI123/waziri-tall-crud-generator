@@ -25,7 +25,7 @@
     </ul>
 </div>
 
-<x-tall-crud-dialog-modal wire:model="confirmingSorting">
+<x-tall-crud-dialog-modal wire:model.live="confirmingSorting">
     <x-slot name="title">
         Sort Fields
     </x-slot>

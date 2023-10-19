@@ -119,6 +119,6 @@ class BulkActionsTest extends TestCase
             ->generateFiles();
         
         $props = $this->component->get('props');
-        $this->assertStringContainsString('wire:model.defer="selectedItems"', $props['html']['table_slot']);
+        $this->assertStringContainsString('wire:model="selectedItems"', $props['html']['table_slot']);
     }
 }

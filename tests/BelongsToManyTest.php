@@ -180,58 +180,58 @@ class BelongsToManyTest extends TestCase
 //         $this->assertStringContainsString('$this->checkedCategories = [];', $props['code']['child_add']['method']);
 //     }
 
-    // public function test_attach_code()
-    // {
-    //     $this->component
-    //         ->setStandardBtmRelations()
-    //         ->pressNext(3)
-    //         ->generateFiles();
+    public function test_attach_code()
+    {
+        $this->component
+            ->setStandardBtmRelations()
+            ->pressNext(3)
+            ->generateFiles();
         
-    //     $childComponentCode = App::make(ChildComponentCode::class);
-    //     $props = $this->component->get('props');
+        $childComponentCode = App::make(ChildComponentCode::class);
+        $props = $this->component->get('props');
 
-    //     $btmAttachCode = $childComponentCode->getBtmAttachCode();
-    //     $tagAttachCode = '$item->tags()->attach($this->checkedTags);';
-    //     $categoryAttachCode = '$item->categories()->attach($this->checkedCategories);';
+        $btmAttachCode = $childComponentCode->getBtmAttachCode();
+        $tagAttachCode = '$item->tags()->attach($this->checkedTags);';
+        $categoryAttachCode = '$item->categories()->attach($this->checkedCategories);';
 
-    //     $this->assertStringContainsString($tagAttachCode, $btmAttachCode);
-    //     $this->assertStringContainsString($categoryAttachCode, $btmAttachCode);
+        $this->assertStringContainsString($tagAttachCode, $btmAttachCode);
+        $this->assertStringContainsString($categoryAttachCode, $btmAttachCode);
 
-    //     $this->assertStringContainsString($tagAttachCode, $props['code']['child_add']['method']);
-    //     $this->assertStringContainsString($categoryAttachCode, $props['code']['child_add']['method']);
-    // }
+        $this->assertStringContainsString($tagAttachCode, $props['code']['child_add']['method']);
+        $this->assertStringContainsString($categoryAttachCode, $props['code']['child_add']['method']);
+    }
 
-//     public function test_fetch_code()
-//     {
-//         $this->component
-//             ->setStandardBtmRelations()
-//             ->pressNext(3)
-//             ->generateFiles();
+    public function test_fetch_code()
+    {
+        $this->component
+            ->setStandardBtmRelations()
+            ->pressNext(3)
+            ->generateFiles();
         
-//         $childComponentCode = App::make(ChildComponentCode::class);
-//         $props = $this->component->get('props');
+        $childComponentCode = App::make(ChildComponentCode::class);
+        $props = $this->component->get('props');
 
-//         $btmFetchCode = $childComponentCode->getBtmFetchCode();
-//         $checkedTagsCode = '$this->checkedTags = $product->tags->pluck("id")->map(function ($i) {';
-//         $checkedCategoriesCode = '$this->checkedCategories = $product->categories->pluck("id")->map(function ($i) {';
-//         $fetchTagCode = <<<'EOT'
-// $this->tags = Tag::orderBy('name')->get();
-// EOT;
-//         $fetchCategoryCode = <<<'EOT'
-// $this->categories = Category::orderBy('name')->get();
-// EOT;
+        $btmFetchCode = $childComponentCode->getBtmFetchCode();
+        $checkedTagsCode = '$this->checkedTags = $product->tags->pluck("id")->map(function ($i) {';
+        $checkedCategoriesCode = '$this->checkedCategories = $product->categories->pluck("id")->map(function ($i) {';
+        $fetchTagCode = <<<'EOT'
+$this->tags = Tag::orderBy('name')->get();
+EOT;
+        $fetchCategoryCode = <<<'EOT'
+$this->categories = Category::orderBy('name')->get();
+EOT;
 
-//         $this->assertStringContainsString($checkedTagsCode, $btmFetchCode);
-//         $this->assertStringContainsString($fetchTagCode, $btmFetchCode);
+        $this->assertStringContainsString($checkedTagsCode, $btmFetchCode);
+        $this->assertStringContainsString($fetchTagCode, $btmFetchCode);
 
-//         $this->assertStringContainsString($checkedCategoriesCode, $btmFetchCode);
-//         $this->assertStringContainsString($fetchCategoryCode, $btmFetchCode);
+        $this->assertStringContainsString($checkedCategoriesCode, $btmFetchCode);
+        $this->assertStringContainsString($fetchCategoryCode, $btmFetchCode);
 
-//         $this->assertStringContainsString($checkedTagsCode, $props['code']['child_edit']['method']);
-//         $this->assertStringContainsString($fetchTagCode, $props['code']['child_edit']['method']);
-//         $this->assertStringContainsString($checkedCategoriesCode, $props['code']['child_edit']['method']);
-//         $this->assertStringContainsString($fetchCategoryCode, $props['code']['child_edit']['method']);
-//     }
+        $this->assertStringContainsString($checkedTagsCode, $props['code']['child_edit']['method']);
+        $this->assertStringContainsString($fetchTagCode, $props['code']['child_edit']['method']);
+        $this->assertStringContainsString($checkedCategoriesCode, $props['code']['child_edit']['method']);
+        $this->assertStringContainsString($fetchCategoryCode, $props['code']['child_edit']['method']);
+    }
 
     public function test_update_code()
     {
@@ -270,12 +270,12 @@ class BelongsToManyTest extends TestCase
         $childViewCode = App::make(ChildViewCode::class);
         $addModalCode = $childViewCode->getAddModal();
 
-        $this->assertStringContainsString('wire:model.defer="checkedTags"', $addModalCode);
+        $this->assertStringContainsString('wire:model="checkedTags"', $addModalCode);
         $this->assertStringContainsString('{{$c->name}}</x-tall-crud-label>', $addModalCode);
         $this->assertStringContainsString('@foreach( $tags as $c)', $addModalCode);
         $this->assertStringContainsString('value="{{ $c->id }}" ', $addModalCode);
 
-        $this->assertStringContainsString('multiple="multiple" wire:model.defer="checkedCategories"', $addModalCode);
+        $this->assertStringContainsString('multiple="multiple" wire:model="checkedCategories"', $addModalCode);
         $this->assertStringContainsString('<option value="{{ $c->id }}">{{$c->name}}</option>', $addModalCode);
         $this->assertStringContainsString('@foreach( $categories as $c)', $addModalCode);
     }
@@ -290,12 +290,12 @@ class BelongsToManyTest extends TestCase
         $childViewCode = App::make(ChildViewCode::class);
         $editModalCode = $childViewCode->getEditModal();
 
-        $this->assertStringContainsString('wire:model.defer="checkedTags"', $editModalCode);
+        $this->assertStringContainsString('wire:model="checkedTags"', $editModalCode);
         $this->assertStringContainsString('{{$c->name}}</x-tall-crud-label>', $editModalCode);
         $this->assertStringContainsString('@foreach( $tags as $c)', $editModalCode);
         $this->assertStringContainsString('value="{{ $c->id }}" ', $editModalCode);
 
-        $this->assertStringContainsString('multiple="multiple" wire:model.defer="checkedCategories"', $editModalCode);
+        $this->assertStringContainsString('multiple="multiple" wire:model="checkedCategories"', $editModalCode);
         $this->assertStringContainsString('<option value="{{ $c->id }}">{{$c->name}}</option>', $editModalCode);
         $this->assertStringContainsString('@foreach( $categories as $c)', $editModalCode);
     }

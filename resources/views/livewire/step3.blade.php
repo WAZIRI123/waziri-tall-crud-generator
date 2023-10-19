@@ -24,7 +24,7 @@
     @foreach ($fields as $i => $field)
     <tr>
         <x-tall-crud-table-column>
-            <select wire:model.defer="fields.{{$i}}.column" class="form-select rounded-md shadow-sm">
+            <select wire:model="fields.{{$i}}.column" class="form-select rounded-md shadow-sm">
                 <option value="">-Select Column-</option>
                 @if (Arr::exists($this->modelProps, 'columns'))
                 @foreach ($this->modelProps['columns'] as $column)
@@ -34,29 +34,29 @@
             </select>
         </x-tall-crud-table-column>
         <x-tall-crud-table-column>
-            <x-tall-crud-input type="text" class="mt-1 block w-full" wire:model.defer="fields.{{$i}}.label"
+            <x-tall-crud-input type="text" class="mt-1 block w-full" wire:model="fields.{{$i}}.label"
                 placeholder="Label" />
         </x-tall-crud-table-column>
         @if (!$this->addAndEditDisabled)
         <x-tall-crud-table-column>
-            <x-tall-crud-checkbox wire:model.defer="fields.{{$i}}.inList" />
+            <x-tall-crud-checkbox wire:model="fields.{{$i}}.inList" />
         </x-tall-crud-table-column>
         @endif
         @if ($this->addFeature)
         <x-tall-crud-table-column>
-            <x-tall-crud-checkbox wire:model.defer="fields.{{$i}}.inAdd" />
+            <x-tall-crud-checkbox wire:model="fields.{{$i}}.inAdd" />
         </x-tall-crud-table-column>
         @endif
         @if ($this->editFeature)
         <x-tall-crud-table-column>
-            <x-tall-crud-checkbox wire:model.defer="fields.{{$i}}.inEdit" />
+            <x-tall-crud-checkbox wire:model="fields.{{$i}}.inEdit" />
         </x-tall-crud-table-column>
         @endif
         <x-tall-crud-table-column>
-            <x-tall-crud-checkbox wire:model.defer="fields.{{$i}}.searchable" />
+            <x-tall-crud-checkbox wire:model="fields.{{$i}}.searchable" />
         </x-tall-crud-table-column>
         <x-tall-crud-table-column>
-            <x-tall-crud-checkbox wire:model.defer="fields.{{$i}}.sortable" />
+            <x-tall-crud-checkbox wire:model="fields.{{$i}}.sortable" />
         </x-tall-crud-table-column>
         <x-tall-crud-table-column>
             @if (!$this->addAndEditDisabled)
@@ -80,7 +80,7 @@
 </div>
 
 @if (!$this->addAndEditDisabled)
-<x-tall-crud-dialog-modal wire:model="confirmingFieldAttributes">
+<x-tall-crud-dialog-modal wire:model.live="confirmingFieldAttributes">
     <x-slot name="title">
         Attributes
     </x-slot>
@@ -91,7 +91,7 @@
                 <x-tall-crud-label>Enter Validations (Comma separated)
                     <x-tall-crud-tag wire:click="clearRules()">Clear Options</x-tall-crud-tag>
                 </x-tall-crud-label>
-                <x-tall-crud-input wire:model.defer="fieldAttributes.rules" class="block mt-1 w-full"
+                <x-tall-crud-input wire:model="fieldAttributes.rules" class="block mt-1 w-full"
                     type="text" />
 
                 Popular Validations:
@@ -103,7 +103,7 @@
 
             <div class="mt-4">
                 <x-tall-crud-label>Field Type</x-tall-crud-label>
-                <x-tall-crud-select class="block mt-1 w-1/4" wire:model="fieldAttributes.type">
+                <x-tall-crud-select class="block mt-1 w-1/4" wire:model.live="fieldAttributes.type">
                     <option value="input">Input</option>
                     <option value="select">Select</option>
                     <option value="checkbox">Checkbox</option>
@@ -112,7 +112,7 @@
 
             @if ($fieldAttributes['type'] == 'select')
             <x-tall-crud-label>Select Options (add as JSON)</x-tall-crud-label>
-            <x-tall-crud-input class="block mt-1 w-full" type="text" wire:model.defer="fieldAttributes.options" />
+            <x-tall-crud-input class="block mt-1 w-full" type="text" wire:model="fieldAttributes.options" />
             @endif
         </div>
     </x-slot>

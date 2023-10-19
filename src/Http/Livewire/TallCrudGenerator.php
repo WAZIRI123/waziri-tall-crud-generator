@@ -355,7 +355,7 @@ class TallCrudGenerator extends Component
     {
         $this->confirmingSorting = true;
         $this->sortingMode = $mode;
-        $this->dispatchBrowserEvent('init-sort-events');
+        $this->dispatch('init-sort-events');
     }
 
     public function hideSortDialog()

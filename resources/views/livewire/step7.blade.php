@@ -1,7 +1,7 @@
 <div>
     <div>
         <x-tall-crud-label>Name of your Livewire Component</x-tall-crud-label>
-        <x-tall-crud-input class="block mt-1 w-1/4" type="text" wire:model.defer="componentName" required />
+        <x-tall-crud-input class="block mt-1 w-1/4" type="text" wire:model="componentName" required />
         @error('componentName') <x-tall-crud-error-message>{{$message}}
         </x-tall-crud-error-message>@enderror
     </div>
