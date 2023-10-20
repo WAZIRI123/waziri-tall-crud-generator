@@ -146,7 +146,7 @@ EOT;
     public function showEditForm(##MODEL## $##MODEL_VAR##): void
     {
         $this->resetErrorBag();
-        $this->##MODEL_VAR = $##MODEL_VAR##;
+        $this->##MODEL_VAR## = $##MODEL_VAR##;
         $this->item = $##MODEL_VAR##->toArray();
         $this->confirmingItemEdit = true;##BTM_FETCH####BELONGS_TO_INIT##
     }

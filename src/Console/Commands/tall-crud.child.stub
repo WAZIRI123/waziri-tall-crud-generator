@@ -1,7 +1,7 @@
 <?php
 
 namespace [namespace];
-
+use Livewire\Attributes\On;
 use Livewire\Component;
 use \Illuminate\View\View;
 use [model_path];[child_other_models]
