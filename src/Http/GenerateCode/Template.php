@@ -58,7 +58,7 @@ EOT;
     {
         return <<<'EOT'
 
-                        <button type="submit" wire:click="$dispatchTo('##COMPONENT_NAME##', 'showDeleteForm', {{ $result->##PRIMARY_KEY##}});" class="text-red-500">
+                        <button type="submit" wire:click="$dispatchTo('##COMPONENT_NAME##', 'showDeleteForm', { ##MODEL_VAR##: {{ $result->##PRIMARY_KEY##}} });" class="text-red-500">
                             <x-tall-crud-icon-delete />
                         </button>
 EOT;
@@ -78,7 +78,7 @@ EOT;
     {
         return <<<'EOT'
 
-                        <button type="submit" wire:click="$dispatchTo('##COMPONENT_NAME##', 'showEditForm', {{ $result->##PRIMARY_KEY##}});" class="text-green-500">
+                        <button type="submit" wire:click="$dispatchTo('##COMPONENT_NAME##', 'showEditForm', { ##MODEL_VAR##: {{ $result->##PRIMARY_KEY##}} });" class="text-green-500">
                             <x-tall-crud-icon-edit />
                         </button>
 EOT;
@@ -89,17 +89,17 @@ EOT;
         return <<<'EOT'
 
     #[On('showDeleteForm')]
-    public function showDeleteForm(int $id): void
+    public function showDeleteForm(##MODEL## $##MODEL_VAR##): void
     {
         $this->confirmingItemDeletion = true;
-        $this->primaryKey = $id;
+        $this->##MODEL_VAR## = $##MODEL_VAR##;
     }
 
     public function deleteItem(): void
     {
-        ##MODEL##::destroy($this->primaryKey);
+        $this->##MODEL_VAR##->delete();
         $this->confirmingItemDeletion = false;
-        $this->primaryKey = '';
+        $this->##MODEL_VAR## = '';
         $this->reset(['item']);
         $this->dispatch('refresh')->to('##COMPONENT_NAME##');##FLASH_MESSAGE##
     }
@@ -146,14 +146,16 @@ EOT;
     public function showEditForm(##MODEL## $##MODEL_VAR##): void
     {
         $this->resetErrorBag();
-        $this->item = $##MODEL_VAR##;
+        $this->##MODEL_VAR = $##MODEL_VAR##;
+        $this->item = $##MODEL_VAR##->toArray();
         $this->confirmingItemEdit = true;##BTM_FETCH####BELONGS_TO_INIT##
     }
 
     public function editItem(): void
     {
         $this->validate();
-        $this->item->save();##BTM_UPDATE##
+        $item = $this->##MODEL_VAR##->update([##CREATE_FIELDS##
+         ]);##BTM_UPDATE##
         $this->confirmingItemEdit = false;
         $this->primaryKey = '';
         $this->dispatch('refresh')->to('##COMPONENT_NAME##');##FLASH_MESSAGE##

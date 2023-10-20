@@ -164,11 +164,13 @@ class ChildComponentCode extends BaseCode
                 '##MODEL##',
                 '##COMPONENT_NAME##',
                 '##FLASH_MESSAGE##',
+                '##MODEL_VAR##',
             ],
             [
                 $this->tallProperties->getModelName(),
                 $this->tallProperties->getComponentName(),
                 $this->getDeleteFlashCode(),
+                Str::lower($this->tallProperties->getModelName()),
             ],
             Template::getDeleteFeatureCode()
         );
@@ -212,6 +214,7 @@ class ChildComponentCode extends BaseCode
                 '##BTM_FETCH##',
                 '##BTM_UPDATE##',
                 '##BELONGS_TO_INIT##',
+                '##CREATE_FIELDS##',
             ],
             [
                 $this->tallProperties->getModelName(),
@@ -221,6 +224,7 @@ class ChildComponentCode extends BaseCode
                 $this->getBtmFetchCode(),
                 $this->getBtmUpdateCode(),
                 $this->getBelongsToInitCode(false),
+                $this->getAddFieldsCode(),
             ],
             Template::getEditFeatureCode()
         );

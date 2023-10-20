@@ -1,6 +1,7 @@
 <?php
 
 namespace WAZIRITALLCRUDGENERATOR\Http\GenerateCode;
+use Illuminate\Support\Str;
 
 class ViewCode extends BaseCode
 {
@@ -177,10 +178,12 @@ class ViewCode extends BaseCode
                 [
                     '##COMPONENT_NAME##',
                     '##PRIMARY_KEY##',
+                    '##MODEL_VAR##',
                 ],
                 [
                     $this->tallProperties->getChildComponentName(),
                     $this->tallProperties->getPrimaryKey(),
+                    Str::lower($this->tallProperties->getModelName()),
                 ],
                 Template::getEditButton()
             ));
@@ -191,10 +194,12 @@ class ViewCode extends BaseCode
                 [
                     '##COMPONENT_NAME##',
                     '##PRIMARY_KEY##',
+                    '##MODEL_VAR##'
                 ],
                 [
                     $this->tallProperties->getChildComponentName(),
                     $this->tallProperties->getPrimaryKey(),
+                    Str::lower($this->tallProperties->getModelName()),
                 ],
                 Template::getDeleteButton()
             ));

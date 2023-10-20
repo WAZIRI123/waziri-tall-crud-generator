@@ -9,7 +9,7 @@ use [model_path];[child_other_models]
 class [class] extends Component
 {
 
-    public $item;
+    public $item=[];
 
 [child_listeners][child_vars][child_rules][child_validation_attributes][child_delete_vars][child_add_vars][child_edit_vars]
 
