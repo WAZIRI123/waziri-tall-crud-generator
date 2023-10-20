@@ -85,6 +85,21 @@ class ChildViewCode extends BaseCode
             $fieldsHtml->push($this->getFieldHtml($field));
         }
 
+        $modifiedFields = Collect();
+        foreach ($fieldsHtml->toArray() as $i => $field) {
+            if ($i % 2 === 0) {
+                $modifiedFields->push('<div class="grid grid-cols-2 gap-8">');
+            }
+    
+            $modifiedFields->push($field);
+    
+            if ($i % 2 === 1 || $i === $fields->count() - 1) {
+                $modifiedFields->push('</div>');
+            }
+        }
+
+        $fieldsHtml=$modifiedFields;
+        
         return str_replace(
             [
                 '##CANCEL_BTN_TEXT##',

@@ -155,6 +155,7 @@ EOT;
         $this->assertTrue($tallProperties->isDeleteFeatureEnabled());
 
         $this->assertNotEmpty($props['code']['child_add']['vars']);
+        $this->assertNotEmpty($props['code']['child_model']['vars']);
         $this->assertNotEmpty($props['code']['child_add']['method']);
         $this->assertTrue($tallProperties->isAddFeatureEnabled());
 

@@ -55,6 +55,24 @@ class ChildComponentCode extends BaseCode
         return $code;
     }
 
+    public function getModelCode()
+    {
+        $code = [
+            'vars' => '',
+     
+        ];
+
+            $code['vars'] = $this->getModelVars();
+
+            return $code;
+   
+        }
+
+        
+    
+
+
+
     public function getListenersArray()
     {
         if (! ($this->tallProperties->isAddFeatureEnabled() ||
@@ -150,6 +168,22 @@ class ChildComponentCode extends BaseCode
     public function getAddVars()
     {
         return Template::getAddVariables();
+    }
+
+    public function getModelVars()
+    {
+
+        return str_replace(
+            [
+                '##MODEL_VAR##',
+            ],
+            [
+                Str::lower($this->tallProperties->getModelName()),
+            ],
+            Template::getModelVariables()
+        );
+
+ 
     }
 
     public function getEditVars()

@@ -278,6 +278,15 @@ EOT;
 EOT;
     }
 
+    public static function getModelVariables()
+    {
+        return <<<'EOT'
+
+    public $##MODEL_VAR## ;
+
+EOT;
+    }
+
     public static function getEditVariables()
     {
         return <<<'EOT'
@@ -443,7 +452,7 @@ EOT;
 
             <div class="mt-4">
                 <x-tall-crud-label>##LABEL##</x-tall-crud-label>
-                <x-tall-crud-input class="block mt-1 w-1/2" type="text" wire:model="item.##COLUMN##" />
+                <x-tall-crud-input class="block mt-1 w-full" type="text" wire:model="item.##COLUMN##" />
                 @error('item.##COLUMN##') <x-tall-crud-error-message>{{$message}}</x-tall-crud-error-message> @enderror
             </div>
 EOT;
@@ -455,7 +464,7 @@ EOT;
 
             <div class="mt-4">
                 <x-tall-crud-label>##LABEL##</x-tall-crud-label>
-                <x-tall-crud-select class="block mt-1 w-1/4" wire:model="item.##COLUMN##">##OPTIONS##
+                <x-tall-crud-select class="block mt-1 w-full" wire:model="item.##COLUMN##">##OPTIONS##
                 </x-tall-crud-select> 
                 @error('item.##COLUMN##') <x-tall-crud-error-message>{{$message}}</x-tall-crud-error-message> @enderror
             </div>

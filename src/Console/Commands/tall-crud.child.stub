@@ -11,7 +11,7 @@ class [class] extends Component
 
     public $item=[];
 
-[child_listeners][child_vars][child_rules][child_validation_attributes][child_delete_vars][child_add_vars][child_edit_vars]
+[child_listeners][child_vars][child_rules][child_validation_attributes][child_delete_vars][child_add_vars][child_Model_vars][child_edit_vars]
 
     public function render(): View
     {
