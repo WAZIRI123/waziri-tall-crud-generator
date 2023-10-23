@@ -1,5 +1,7 @@
 <div>
-    <div x-data="{ selected : @entangle('selected').defer}">
+
+
+    <div wire:ignore x-data="{ selected : @entangle('selected')}">
         <x-tall-crud-accordion-header tab="1">
             Customize Text
             <x-slot name="help">

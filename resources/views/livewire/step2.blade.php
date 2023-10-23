@@ -1,5 +1,6 @@
 <div>
-    <div x-data="{showPrimaryKeyInListing : @entangle('primaryKeyProps.inList').defer }">
+
+    <div wire:ignore x-data="{showPrimaryKeyInListing : @entangle('primaryKeyProps.inList') }">
         <div class="text-black bg-gray-200 p-4">Table Name is: <span class="font-bold">
                 {{$modelProps['tableName']}}</span></div>
         <div class="text-black bg-gray-200 p-4 mt-2">Primary Key is: <span class="font-bold">
