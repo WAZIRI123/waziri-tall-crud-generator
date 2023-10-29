@@ -1,4 +1,4 @@
-<div wire:ignore x-data="{ selected : @entangle('selected').live,
+<div wire:ignore.self x-data="{ selected : @entangle('selected').live,
                     
                     
                     
