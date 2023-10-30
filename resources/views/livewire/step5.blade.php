@@ -1,7 +1,8 @@
-<div>
+
+<div wire:ignore.self x-data="{ addFeature : @entangle('addFeature'),editFeature : @entangle('editFeature'),sortingMode : @entangle('sortingMode'),sortFieldsListing : @entangle('sortFields.listing'),sortFieldsAdd : @entangle('sortFields.add'),sortFieldsEdit : @entangle('sortFields.edit')}">
     <ul>
         <li class="flex">
-            <span class="cursor-pointer text-blue-500 font-medium" wire:click="showSortDialog('listing')">Listing</span>
+            <span class="cursor-pointer text-blue-500 font-medium" wire:click="showSortDialog('listing')">Listing ></h1></span>
             <x-tall-crud-tooltip>
                 Change the Order of Columns displayed in the Listing
             </x-tall-crud-tooltip>
@@ -23,30 +24,60 @@
         </li>
         @endif
     </ul>
-</div>
-
-<x-tall-crud-dialog-modal wire:model.live="confirmingSorting">
+    <x-tall-crud-dialog-modal wire:model.live="confirmingSorting">
     <x-slot name="title">
         Sort Fields
     </x-slot>
 
     <x-slot name="content">
-        <ul drag-root class="overflow-hidden rounded shadow divide-y">
-            @if(!empty($this->sortingMode))
-            @foreach($this->sortFields[$this->sortingMode] as $t)
-                <li drag-item="{{ (isset($t['type']) && $t['type'] == 'withCount') ?  $t['field'] . ' (Count)' : $t['field']}}" draggable="true" wire:key="{{$t['field']}}" class="w-64 p-4 bg-white border">
-                    {{$t['field']}}
-                    {{ (isset($t['type']) && $t['type'] == 'withCount') ? '(Count)' : ''}}
+        <ul drag-root class="overflow-hidden rounded shadow divide-y" x-show="sortingMode=='listing'">
+
+        <template  x-for="field in sortFieldsListing">
+
+        
+                <li x-bind:drag-item="field.type !== undefined && field.type == 'withCount') ?  field.field . ' (Count)' : field.field" draggable="true" x-bind:wire:key="field.field" class="w-64 p-4 bg-white border" x-text="`${field.field} ${field.type !== undefined && field.type === 'withCount'?'(Count)' : ''}`">
+                    
                 </li>
-            @endforeach
-            @endif
-        </ul>
+
+             </template>
+
+             </ul>
+
+             <ul drag-root class="overflow-hidden rounded shadow divide-y" x-show="sortingMode=='add'">
+             <template x-for="field in sortFieldsAdd">
+
+        
+<li x-bind:drag-item="field.type !== undefined && field.type == 'withCount') ?  field.field . ' (Count)' : field.field" draggable="true" x-bind:wire:key="field.field" class="w-64 p-4 bg-white border" x-text="`${field.field} ${field.type !== undefined && field.type === 'withCount'?'(Count)' : ''}`">
+    
+</li>
+
+
+</template>
+             </ul>
+
+             <ul drag-root class="overflow-hidden rounded shadow divide-y" x-show="sortingMode=='edit'">
+         
+
+<template  x-for="field in sortFieldsEdit">
+
+        
+<li x-bind:drag-item="field.type !== undefined && field.type == 'withCount') ?  field.field . ' (Count)' : field.field" draggable="true" x-bind:wire:key="field.field" class="w-64 p-4 bg-white border" x-text="`${field.field} ${field.type !== undefined && field.type === 'withCount'?'(Count)' : ''}`">
+    
+</li>
+
+</template>
+             </ul>
+
+  
     </x-slot>
 
     <x-slot name="footer">
         <x-tall-crud-button mode="add" wire:click="hideSortDialog()">Done</x-tall-crud-button>
     </x-slot>
 </x-tall-crud-dialog-modal>
+
+</div>
+
 
 <script>
     window.addEventListener('init-sort-events', event => {
