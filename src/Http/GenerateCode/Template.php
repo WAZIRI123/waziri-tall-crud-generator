@@ -32,7 +32,7 @@ EOT;
     public static function getAlpineCode()
     {
         return <<<'EOT'
-        wire:ignore
+    
 x-data="{
     selectedColumns: @entangle('selectedColumns'),
     columns: @entangle('columns'),

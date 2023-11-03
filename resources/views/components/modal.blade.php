@@ -11,7 +11,7 @@ $maxWidth = [
 ][$maxWidth ?? '2xl'];
 @endphp
 
-<div wire:ignore
+<div 
     x-data="{
         show: @entangle($attributes->wire('model')),
         focusables() {

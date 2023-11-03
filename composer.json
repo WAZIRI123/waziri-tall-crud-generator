@@ -37,6 +37,6 @@
         }
     },
     "require": {
-        "ascsoftw/livewire-toast": "^1.0"
+        "waziri123/waziri-livewire-toast": "dev-master"
     }
 }
