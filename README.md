@@ -18,7 +18,7 @@ Make sure that [AlpineJS](https://github.com/alpinejs/alpine/) is installed prop
 You can install the Package using Composer
 
 ```bash
-composer require waziri123/waziri-tall-crud-generator:dev-master
+composer require waziri123/waziri-tall-crud-generator
 ```
 
 ## Usage
